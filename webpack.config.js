@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = {
   entry: "./src/extension.ts",
@@ -10,7 +11,8 @@ const config = {
   resolve: {
     fallback: {
       os: require.resolve("os-browserify/browser"),
-      path: require.resolve("path-browserify")
+      path: require.resolve("path-browserify"),
+      fs: false
     },
     extensions: [".ts", ".js", ".json"]
   },
@@ -28,6 +30,10 @@ const config = {
             loader: "ts-loader"
           }
         ]
+      },
+      {
+        test: /\.wasm$/,
+        type: "asset/resource"
       }
     ]
   },
@@ -37,6 +43,21 @@ const config = {
       noSources: false,
       module: true,
       columns: true
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "node_modules/web-tree-sitter/tree-sitter.wasm",
+          to: "tree-sitter.wasm"
+        },
+        {
+          from: "node_modules/tree-sitter-wasms/out",
+          to: "grammars",
+          globOptions: {
+            ignore: ["**/*.md", "**/*.txt"]
+          }
+        }
+      ]
     })
   ]
 };
@@ -63,4 +84,5 @@ const webConfig = {
   }
 };
 
+// Build both node and web versions (web-tree-sitter works in both!)
 module.exports = [nodeConfig, webConfig];

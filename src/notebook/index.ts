@@ -46,8 +46,7 @@ class CodeTourNotebookProvider implements vscode.NotebookSerializer {
     cells.push(
       new vscode.NotebookCellData(
         1,
-        `## ![Icon](${SMALL_ICON_URL})&nbsp;&nbsp; CodeTour (${tour.title}) - ${
-          steps.length
+        `## ![Icon](${SMALL_ICON_URL})&nbsp;&nbsp; CodeTour (${tour.title}) - ${steps.length
         } steps\n\n${tour.description === undefined ? "" : tour.description}`,
         "markdown"
       )
@@ -59,8 +58,7 @@ class CodeTourNotebookProvider implements vscode.NotebookSerializer {
         new vscode.NotebookCellOutput([
           new vscode.NotebookCellOutputItem(
             new TextEncoder().encode(
-              `_Step #${index + 1} of ${steps.length}:_ ${
-                step.description
+              `_Step #${index + 1} of ${steps.length}:_ ${step.description
               } ([View File](${step.uri}))`
             ),
             "text/markdown"
@@ -81,7 +79,7 @@ class CodeTourNotebookProvider implements vscode.NotebookSerializer {
 }
 
 export function registerNotebookProvider() {
-  vscode.notebook.registerNotebookSerializer(
+  vscode.workspace.registerNotebookSerializer(
     EXTENSION_NAME,
     new CodeTourNotebookProvider()
   );

@@ -3,6 +3,7 @@
 
 import * as vscode from "vscode";
 import { initializeApi } from "./api";
+import { registerGeneratorCommands } from "./generator";
 import { initializeGitApi } from "./git";
 import { registerLiveShareModule } from "./liveShare";
 import { registerPlayerModule } from "./player";
@@ -77,6 +78,7 @@ class URIHandler implements vscode.UriHandler {
 export async function activate(context: vscode.ExtensionContext) {
   registerPlayerModule(context);
   registerRecorderModule();
+  registerGeneratorCommands(context.extensionPath);
   registerLiveShareModule();
 
   const uriHandler = new URIHandler();

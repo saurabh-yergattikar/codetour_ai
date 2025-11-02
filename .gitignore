@@ -3,3 +3,10 @@ node_modules
 .vscode-test/
 *.vsix
 .DS_Store
+.env
+.env.local
+*.log
+.codetour-analysis.log
+secrets/
+*.key
+*.pem

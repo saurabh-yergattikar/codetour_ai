@@ -1,20 +1,20 @@
 {
-  "name": "codetour",
-  "displayName": "CodeTour",
-  "description": "VS Code extension that allows you to record and playback guided tours of codebases, directly within the editor",
-  "publisher": "vsls-contrib",
-  "version": "0.0.59",
+  "name": "codetour-ai",
+  "displayName": "CodeTour AI",
+  "description": "Enterprise-grade VS Code extension for AI-powered code tours using TreeSitter AST analysis and LLMs. Accelerate onboarding from weeks to hours.",
+  "publisher": "saurabh-yergattikar",
+  "version": "1.0.10",
   "author": {
-    "name": "Microsoft Corporation"
+    "name": "Saurabh Yergattikar"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/codetour"
+    "url": "https://github.com/saurabh-yergattikar/codetour_ai"
   },
   "bugs": {
-    "url": "https://github.com/microsoft/codetour/issues"
+    "url": "https://github.com/saurabh-yergattikar/codetour_ai/issues"
   },
-  "homepage": "https://github.com/microsoft/codetour#readme",
+  "homepage": "https://github.com/saurabh-yergattikar/codetour_ai#readme",
   "license": "MIT",
   "icon": "images/icon.png",
   "engines": {
@@ -64,6 +64,54 @@
           "type": "string",
           "default": null,
           "description": "Specifies a custom location to use when discovering tours."
+        },
+        "codetour.llm.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for LLM service (OpenAI, Anthropic, etc.) used for auto-generating tours.",
+          "markdownDescription": "API key for LLM service. Keep this secure and never commit it to version control."
+        },
+        "codetour.llm.apiUrl": {
+          "type": "string",
+          "default": "https://api.openai.com/v1/chat/completions",
+          "description": "API endpoint URL for LLM service. Change this for custom providers or local models."
+        },
+        "codetour.llm.model": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "description": "LLM model to use. Recommended: 'gpt-4o-mini' (fast + cheap), 'gpt-4-turbo-preview' (best quality), 'claude-3-5-sonnet-20241022' (balanced)"
+        },
+        "codetour.llm.provider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "anthropic",
+            "custom"
+          ],
+          "default": "openai",
+          "description": "LLM provider to use for auto-generation."
+        },
+        "codetour.autoGenerate.maxFilesToAnalyze": {
+          "type": "number",
+          "default": 0,
+          "description": "Maximum number of source files to analyze with TreeSitter AST (0 = unlimited, analyzes entire codebase). Test files, node_modules, build artifacts, and configs are automatically excluded."
+        },
+        "codetour.autoGenerate.includeFileTypes": {
+          "type": "array",
+          "default": [
+            ".ts",
+            ".js",
+            ".tsx",
+            ".jsx",
+            ".py",
+            ".java",
+            ".go",
+            ".rs",
+            ".cpp",
+            ".c",
+            ".cs"
+          ],
+          "description": "File extensions to include when auto-generating tours."
         }
       }
     },
@@ -228,6 +276,18 @@
         "command": "codetour.viewNotebook",
         "title": "View Notebook",
         "category": "CodeTour"
+      },
+      {
+        "command": "codetour.generateTour",
+        "title": "Generate Code Tour (AI)",
+        "category": "CodeTour",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "codetour.configureLLM",
+        "title": "Configure LLM Settings",
+        "category": "CodeTour",
+        "icon": "$(settings-gear)"
       }
     ],
     "menus": {
@@ -351,6 +411,14 @@
         {
           "command": "codetour.viewNotebook",
           "when": "false"
+        },
+        {
+          "command": "codetour.generateTour",
+          "when": "workspaceFolderCount != 0"
+        },
+        {
+          "command": "codetour.configureLLM",
+          "when": "workspaceFolderCount != 0"
         }
       ],
       "comments/commentThread/title": [
@@ -433,9 +501,14 @@
           "group": "navigation@2"
         },
         {
-          "command": "codetour.recordTour",
+          "command": "codetour.generateTour",
           "when": "view == codetour.tours",
-          "group": "navigation@3"
+          "group": "navigation@1"
+        },
+        {
+          "command": "codetour.configureLLM",
+          "when": "view == codetour.tours",
+          "group": "navigation@2"
         }
       ],
       "view/item/context": [
@@ -596,7 +669,7 @@
     "viewsWelcome": [
       {
         "view": "codetour.tours",
-        "contents": "In order to create a guided walkthrough, you can begin recording a tour for the currently opened workspace ([Learn More](https://github.com/vsls-contrib/codetour#recording-tours)).\n\n[Record Tour](command:codetour.recordTour)\n\nYou can also open tours that were shared with you by others ([Learn More](https://github.com/vsls-contrib/codetour#opening-tours)).\n\n[Open Tour File](command:codetour.openTourFile)\n\n[Open Tour URL](command:codetour.openTourUrl)"
+        "contents": "**AI-Powered Code Tours** 🚀\n\nAutomatically generate comprehensive, narrative-driven code tours using TreeSitter AST analysis and AI. Perfect for onboarding engineers and understanding complex codebases!\n\n[Generate Code Tour (AI)](command:codetour.generateTour)\n\n[Configure LLM Settings](command:codetour.configureLLM)\n\n---\n\n**Features:**\n• Real TreeSitter AST code analysis\n• Deep method-level tour generation\n• Architectural overview & flows\n• Professional technical language\n• Comprehensive welcome page\n\nGet started by configuring your LLM API key, then generate your first tour!"
       }
     ],
     "jsonValidation": [
@@ -659,13 +732,16 @@
     "os-browserify": "0.3.0",
     "path-browserify": "1.0.1",
     "throttle-debounce": "^3.0.1",
-    "vsls": "^1.0.2532"
+    "vsls": "^1.0.2532",
+    "web-tree-sitter": "^0.20.8",
+    "tree-sitter-wasms": "^0.1.11"
   },
   "devDependencies": {
     "@types/node": "^18.14.0",
     "@types/throttle-debounce": "^5.0.0",
     "@types/vscode": "^1.60",
     "@vscode/vsce": "^2.17.0",
+    "copy-webpack-plugin": "^11.0.0",
     "debug": "^4.3.4",
     "eslint": "^8.34.0",
     "ts-loader": "^9.4.2",

@@ -3,11 +3,20 @@
     "module": "commonjs",
     "target": "es6",
     "outDir": "out",
-    "lib": ["ES2019", "DOM"],
+    "lib": [
+      "ES2019",
+      "DOM"
+    ],
     "sourceMap": true,
     "rootDir": "src",
     "strict": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/notebook/vscode.proposed.d.ts"
+  ]
 }
