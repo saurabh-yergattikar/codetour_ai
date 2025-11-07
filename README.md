@@ -1,113 +1,149 @@
-# CodeTour AI 🗺️🤖
+# CodeTour AI 🗺️✨
 
-**Transform codebase onboarding from weeks to hours with AI-powered, interactive code tours.**
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/saurabh-yergattikar.codetour-ai?style=for-the-badge&label=VS%20Code%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=saurabh-yergattikar.codetour-ai)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/saurabh-yergattikar.codetour-ai?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=saurabh-yergattikar.codetour-ai)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/saurabh-yergattikar.codetour-ai?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=saurabh-yergattikar.codetour-ai)
 
-CodeTour AI is an enterprise-grade Visual Studio Code extension that automatically generates comprehensive, narrative-style guided tours of any codebase using TreeSitter AST analysis and Large Language Models. Perfect for enterprise teams, open-source projects, and developers who want to accelerate knowledge transfer and eliminate manual documentation.
+**Transform codebase onboarding from weeks to hours with AI-powered, narrative-driven code tours.**
 
-![CodeTour AI Demo](https://user-images.githubusercontent.com/116461/76165260-c6c00500-6112-11ea-9cda-0a6cb9b72e8f.gif)
+CodeTour AI automatically generates comprehensive, mental-model-driven guided tours of any codebase using Repomix analysis and Large Language Models. Perfect for enterprise teams, open-source projects, and developers who want to accelerate knowledge transfer.
+
+---
+
+## 📦 Installation & Setup
+
+![Installation Setup](images/installtion_setup.gif)
+
+### Install from VS Code Marketplace
+
+1. Open VS Code Extensions (`Cmd+Shift+X` / `Ctrl+Shift+X`)
+2. Search for **"CodeTour AI"**
+3. Click **Install**
+4. Configure your LLM API key (OpenAI, Anthropic, or custom)
+5. Start generating tours! ✨
+
+Or install via command:
+```bash
+ext install saurabh-yergattikar.codetour-ai
+```
+
+---
+
+## 🎬 See It In Action
+
+![Code Tour Demo](images/code_tour.gif)
+
+Watch CodeTour AI analyze your codebase and generate a comprehensive, narrative-driven tour that explains:
+- **Project Architecture** - High-level component structure
+- **Entry Points** - Where the application starts
+- **Data Flow** - How information moves through the system
+- **Design Patterns** - Technical decisions and trade-offs
+- **Key Abstractions** - Core concepts and interfaces
 
 ---
 
 ## 🚀 Key Features
 
-### 1. **AI-Powered Tour Generation** 🤖
-Automatically generate comprehensive, narrative-style code tours using advanced AI technology. Our dual-engine approach combines **TreeSitter AST** parsing for precise code analysis with **LLM intelligence** (OpenAI GPT-4, Anthropic Claude, or custom models) to create educational tours that explain not just *what* the code does, but *why* and *how* it works.
+### 🤖 **AI-Powered Tour Generation**
+Automatically generate comprehensive, narrative-driven code tours using **Repomix analysis** and **LLM intelligence** (OpenAI, Anthropic, or custom models). Tours explain not just *what* the code does, but *why* and *how* it works.
+
+**What You Get:**
+- ⚡ **90% faster onboarding** - Understand codebases in hours, not weeks
+- 🧠 **Mental model flow** - Tours follow logical execution paths (entry → core → integrations)
+- 📚 **Comprehensive overview** - Welcome page with architecture, purpose, flows, and use cases
+- 🎯 **15-25 technical checkpoints** - Each with professional descriptions
+- 🔄 **Parallel processing** - 10x faster generation with concurrent chunks
+
+### 📊 **Repomix-Powered Analysis**
+Unlike pattern-matching tools, CodeTour AI uses **Repomix** to generate a complete, AI-friendly summary of your entire codebase with actual line numbers. This ensures accurate, context-aware understanding.
 
 **Benefits:**
-- ⚡ **90% faster onboarding** - New developers understand codebases in hours, not weeks
-- 🎯 **Unlimited analysis** - Analyze entire codebases (all source files) with smart filtering
-- 🧹 **Auto-excludes noise** - Skips tests, node_modules, build artifacts, and config files
-- 📚 **Rich context** - Welcome pages include project purpose, use cases, architecture, and tech stack
-- 🔄 **Concurrent processing** - Multi-batch generation with 3x parallelization for speed
+- ✅ **Full codebase analysis** - All source files with actual line numbers
+- 🔍 **Deep insights** - Understands imports, exports, and module relationships
+- 🌍 **Multi-language support** - 30+ languages including TypeScript, JavaScript, Python, Go, Rust, Java
+- 📦 **One-page summary** - AI-optimized XML format for efficient processing
+- 🎓 **Educational quality** - Generates beginner-friendly yet technically accurate explanations
 
-### 2. **TreeSitter AST-Powered Code Analysis** 🌳
-Unlike traditional regex-based tools, CodeTour AI uses **TreeSitter** - the same technology that powers GitHub's code navigation - to perform true Abstract Syntax Tree (AST) parsing. This ensures accurate, semantic understanding of your code structure across 35+ programming languages.
-
-**Benefits:**
-- ✅ **Accurate analysis** - Semantic parsing, not pattern matching
-- 🔍 **Deep insights** - Extracts classes, functions, methods, imports, exports, and relationships
-- 🌍 **Multi-language support** - TypeScript, JavaScript, Python, Java, Go, Rust, C++, C#, PHP, Ruby, and more
-- 📊 **Dependency graphs** - Understands how components connect and interact
-- 🎓 **Educational quality** - Generates beginner-friendly explanations with technical depth
-
-### 3. **Enterprise-Ready LLM Integration** 🏢
-Flexible, secure integration with multiple LLM providers to suit your organization's needs. Whether you're using cloud APIs or self-hosted models, CodeTour AI adapts to your infrastructure.
+### 🏢 **Enterprise-Ready LLM Integration**
+Flexible, secure integration with multiple LLM providers. Works with cloud APIs or self-hosted models.
 
 **Supported Providers:**
-- **OpenAI** - GPT-4o, GPT-4o-mini, GPT-3.5 Turbo
-- **Anthropic** - Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku
-- **Custom/Self-Hosted** - Any OpenAI-compatible API (Llama, Mistral, local models)
+- **OpenAI** - GPT-4, GPT-4o, GPT-4o-mini
+- **Anthropic** - Claude 3.5 Sonnet, Claude 3 Opus
+- **Custom/Self-Hosted** - Any OpenAI-compatible API (Ollama, Llama, Mistral)
 
 **Security Features:**
-- 🔐 **Secure credential storage** - API keys stored in VS Code Secret Storage
-- 🚫 **No data retention** - Your code never leaves your control
-- 🏠 **Self-hosted options** - Run LLMs locally for complete privacy
-- ⚙️ **Configurable endpoints** - Custom API URLs for enterprise proxies
+- 🔐 **Secure storage** - API keys encrypted in VS Code Secret Storage
+- 🚫 **No data retention** - Your code stays private
+- 🏠 **Local options** - Run LLMs locally for complete privacy
+- ⚙️ **Custom endpoints** - Enterprise proxy support
 
-### 4. **Intelligent Tour Curation** 🎯
-Smart filtering and prioritization ensures tours focus on what matters - core business logic, architecture patterns, and critical flows - while automatically skipping boilerplate, tests, and generated code.
+### 🎯 **Mental Model Tour Architecture**
+Smart tour generation that creates a logical learning journey through your codebase:
+
+**Tour Structure:**
+1. **Welcome Checkpoint** - LLM analyzes codebase to generate:
+   - Project purpose and goals
+   - High-level architecture overview
+   - Key technical flows
+   - Primary use cases
+   - Technology stack
+   - Entry points
+
+2. **Sequential Checkpoints** - Follow execution flow:
+   - Entry point (main.ts, index.ts, etc.)
+   - Core logic and abstractions
+   - Data flow and transformations
+   - Integration points
+   - Each checkpoint explains "what", "why", "how", and "next"
 
 **Smart Features:**
-- 🧠 **Context-aware filtering** - Identifies entry points, core components, and public APIs
-- 🎨 **Quality over quantity** - Targets 20-30 high-value steps vs. 100+ trivial ones
-- 📖 **Narrative structure** - Story-like progression from overview to implementation details
-- 🔗 **Connection mapping** - Shows how components interact and data flows
-- ⏱️ **Optimized generation** - 45-second batch timeouts with auto-recovery
-
-### 5. **Production-Grade Reliability** 💪
-Built for scale with enterprise-level error handling, concurrent processing, and intelligent recovery mechanisms. Tested on codebases ranging from startups to Fortune 500 companies.
-
-**Reliability Features:**
-- ⚡ **Concurrent batch processing** - 3 batches simultaneously for 3x faster generation
-- ⏱️ **Timeout protection** - 45-second timeouts prevent hangs
-- 🔄 **Auto-recovery** - Graceful degradation when LLM calls fail
-- 📊 **Progress tracking** - Real-time status updates during generation
-- 🛡️ **Validation layers** - Multi-stage validation ensures tour accuracy
-- 📝 **Comprehensive logging** - TreeSitter analysis logs for debugging
+- 🧠 **Intelligent sorting** - Entry points prioritized first
+- 🔗 **Connection mapping** - Shows how components interact
+- ⚡ **Chunk-based processing** - 5 files per chunk to avoid rate limits
+- 📈 **Progress tracking** - Real-time status during generation
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Install the Extension
+### 1. Configure Your LLM Provider
 
-Install **CodeTour AI** from the VS Code Marketplace or from a `.vsix` file.
+Open VS Code and run:
+- **Command Palette** (`Cmd+Shift+P`): `CodeTour: Configure LLM Settings`
+- **Settings UI**: Search for "CodeTour" in VS Code settings
 
-### 2. Configure Your LLM Provider
+**Enter:**
+1. API provider (OpenAI, Anthropic, or Custom)
+2. API key (stored securely)
+3. Model name (e.g., `gpt-4o-mini`, `claude-3-5-sonnet-20241022`)
 
-Open VS Code and run one of these commands:
-- **Command Palette**: `CodeTour: Configure LLM Settings`
-- **Tree View**: Click the gear icon (⚙️) in the CodeTour panel
-
-**Configuration Steps:**
-1. Choose your LLM provider (OpenAI, Anthropic, or Custom)
-2. Enter your API key (stored securely)
-3. Select your preferred model (e.g., `gpt-4o-mini`, `claude-3-5-sonnet`)
-4. Save and you're ready!
-
-### 3. Generate Your First Tour
+### 2. Generate Your First Tour
 
 **Option A: Command Palette**
 1. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
 2. Run `CodeTour: Generate Code Tour (AI)`
-3. Enter a tour title (e.g., "Architecture Overview")
-4. Wait for AI to analyze and generate (usually 30-90 seconds)
+3. Enter optional tour title and description
+4. Wait 1-3 minutes for generation
 5. Start exploring! 🎉
 
 **Option B: CodeTour Panel**
-1. Open the Explorer sidebar
-2. Find the **CodeTour** panel
-3. Click the sparkle icon (✨) to generate
-4. Follow the prompts
+1. Open Explorer sidebar
+2. Find **CodeTour** panel
+3. Click sparkle icon (✨)
+4. Follow prompts
 
-### 4. Take the Tour
+### 3. Navigate Your Tour
 
-Once generated, your tour will appear in the CodeTour panel. Click it to start!
-
-Use these shortcuts while touring:
+**Keyboard Shortcuts:**
 - **Next Step**: `Cmd+→` (Mac) / `Ctrl+→` (Windows/Linux)
 - **Previous Step**: `Cmd+←` (Mac) / `Ctrl+←` (Windows/Linux)
-- **End Tour**: Click the stop button (red square)
+- **End Tour**: Click stop button or press `Esc`
+
+**UI Controls:**
+- Click steps in CodeTour panel
+- Use navigation arrows in editor
+- View progress in status bar
 
 ---
 
@@ -115,40 +151,34 @@ Use these shortcuts while touring:
 
 ### LLM Provider Setup
 
-#### OpenAI
+#### OpenAI (Recommended)
 1. Sign up at [platform.openai.com](https://platform.openai.com)
-2. Generate an API key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-3. Recommended models: `gpt-4o-mini` (fast, cheap), `gpt-4o` (best quality)
+2. Generate API key at [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+3. **Recommended models:**
+   - `gpt-4o-mini` - Fast, affordable ($0.15/1M tokens)
+   - `gpt-4o` - Best quality ($5/1M tokens)
 
-#### Anthropic (Claude)
+#### Anthropic Claude
 1. Sign up at [console.anthropic.com](https://console.anthropic.com)
-2. Generate an API key from your account settings
-3. Recommended models: `claude-3-5-sonnet-20241022`, `claude-3-opus-20240229`
+2. Generate API key from account settings
+3. **Recommended models:**
+   - `claude-3-5-sonnet-20241022` - Best balance
+   - `claude-3-opus-20240229` - Highest quality
 
-#### Custom/Self-Hosted LLMs
-1. Use any OpenAI-compatible API endpoint (e.g., Ollama, LM Studio)
-2. Set custom API URL in settings
-3. Works with: Llama, Mistral, CodeLlama, and more!
+#### Custom/Self-Hosted
+1. Install local LLM server (Ollama, LM Studio, etc.)
+2. Set custom API URL: `http://localhost:11434/v1/chat/completions`
+3. **Supported models:** Llama, Mistral, CodeLlama, Qwen
 
 ### VS Code Settings
-
-Configure CodeTour AI through VS Code settings:
 
 ```jsonc
 {
   // LLM Configuration
-  "codetour.llm.provider": "openai",  // or "anthropic", "custom"
+  "codetour.llm.provider": "openai",
   "codetour.llm.apiKey": "your-api-key-here",
   "codetour.llm.model": "gpt-4o-mini",
   "codetour.llm.apiUrl": "https://api.openai.com/v1/chat/completions",
-  
-  // Analysis Settings
-  "codetour.autoGenerate.maxFilesToAnalyze": 0,  // 0 = unlimited
-  "codetour.autoGenerate.includeFileTypes": [
-    ".ts", ".js", ".tsx", ".jsx",
-    ".py", ".java", ".go", ".rs",
-    ".cpp", ".c", ".cs", ".rb", ".php"
-  ],
   
   // Display Settings
   "codetour.showMarkers": true,
@@ -162,135 +192,124 @@ Configure CodeTour AI through VS Code settings:
 
 CodeTour AI uses a sophisticated multi-stage pipeline:
 
-### 1. **TreeSitter AST Parsing** 🌳
-- Loads WASM-based TreeSitter parsers for 35+ languages
-- Parses entire codebase into Abstract Syntax Trees
-- Extracts classes, functions, methods, imports, exports
-- Builds dependency graph showing how components connect
-- **No regex! Pure semantic analysis.**
+### 1. **Repomix Analysis** 📦
+- Scans entire workspace for source files
+- Generates comprehensive XML summary with:
+  - Directory structure
+  - File contents with line numbers
+  - Import/export relationships
+  - Language detection
+- Auto-excludes tests, node_modules, build artifacts
 
-### 2. **Smart File Selection** 🎨
-- Automatically excludes:
-  - Tests (`*.test.*`, `*.spec.*`, `__tests__/`)
-  - Build artifacts (`dist/`, `build/`, `node_modules/`)
-  - Config files (`*.config.*`, `*.d.ts`)
-  - Generated code (`*.generated.*`, `*.min.*`)
-- Prioritizes:
-  - Entry points (`index.ts`, `main.py`)
-  - Core source files (`src/`, `lib/`)
-  - Public APIs and interfaces
+### 2. **Smart File Sorting** 🎨
+- Prioritizes entry points (main.ts, index.ts, app.ts)
+- Sorts by importance for mental model flow
+- Ensures chunk 1 contains application entry point
 
-### 3. **Concurrent Batch Processing** ⚡
-- Splits codebase into batches of 4 files
-- Processes 3 batches simultaneously (12 files at once!)
-- 45-second timeout per batch with auto-recovery
-- Progress tracking shows real-time status
+### 3. **Parallel Chunk Processing** ⚡
+- Splits files into chunks (5 files per chunk)
+- Processes 10 chunks in parallel
+- Each chunk: 25 lines per file for context
+- 1-second delay between batches to avoid rate limits
 
 ### 4. **LLM Tour Generation** 🤖
-- Sends code structure (not full content) to LLM
-- AI generates narrative explanations for each component
-- Creates welcome page with project overview, architecture, use cases
-- Focuses on **why** and **how**, not just **what**
-- Validates all file paths and line numbers
+- **Welcome Step**: Analyzes 8-10 key files to generate:
+  - Project purpose and architecture
+  - Technical flows and patterns
+  - Use cases and entry points
+- **Code Checkpoints**: For each chunk:
+  - Identifies entry point (chunk 1) or continues flow
+  - Generates technical descriptions
+  - Explains "what", "why", "how", "next"
+  - Professional tone, no childish analogies
 
-### 5. **Tour Assembly & Validation** ✅
-- Assembles all steps into coherent narrative
-- Validates file references
-- Ensures welcome page is step #1
-- Saves as standard `.tour` file
-- Ready to share with your team!
+### 5. **Tour Assembly** ✅
+- Combines all checkpoints
+- Validates file paths and line numbers
+- Ensures sequential flow
+- Saves as `.tour` file in `.tours/` directory
 
 ---
 
 ## 💡 Supported Languages
 
-CodeTour AI supports **35+ programming languages** via TreeSitter:
+**30+ languages** supported via Repomix:
 
 **Web & Mobile:**
-- TypeScript/JavaScript (`.ts`, `.tsx`, `.js`, `.jsx`)
-- HTML, CSS
-- Swift, Kotlin
-- Dart
+- TypeScript, JavaScript, React (TSX/JSX)
+- HTML, CSS, Vue
+- Swift, Kotlin, Dart
 
 **Backend & Systems:**
-- Python (`.py`)
-- Java (`.java`)
-- Go (`.go`)
-- Rust (`.rs`)
-- C/C++ (`.c`, `.cpp`, `.h`)
-- C# (`.cs`)
+- Python, Java, Go, Rust
+- C/C++, C#
+- Node.js, Deno
 
-**Scripting & Data:**
-- Ruby (`.rb`)
-- PHP (`.php`)
-- Bash/Shell (`.sh`)
-- Lua (`.lua`)
-- Elixir (`.ex`, `.exs`)
-
-**And more:** Scala, OCaml, Objective-C, Zig, Elm, Vue, YAML, TOML, JSON, and more!
+**Scripting & Other:**
+- Ruby, PHP, Bash/Shell
+- Elixir, Scala, Lua
+- YAML, JSON, TOML
 
 ---
 
 ## 🔐 Privacy & Security
 
-### Where Your Data Goes
+### What's Sent to the LLM
 
-**Code Structure** (sent to LLM):
-- Class names, function signatures, imports/exports
-- File paths and directory structure
-- **NOT sent**: Function bodies, business logic, secrets
+**For Welcome Page:**
+- 8-10 key files (first 40 lines each)
+- README content (first 2000 chars)
+- File structure overview
 
-**API Keys** (stored securely):
-- Stored in VS Code Secret Storage (encrypted)
-- Never included in tours or exported files
-- Only accessible by the extension
+**For Checkpoints:**
+- 5 files per chunk (first 25 lines each)
+- File paths and metadata
+- **NOT sent**: Full file contents, secrets, credentials
 
-**Tours** (local by default):
-- Saved to `.tours/` directory in your workspace
+### Data Storage
+
+**API Keys:**
+- Encrypted in VS Code Secret Storage
+- Never included in tours or logs
+- Only accessible by extension
+
+**Tours:**
+- Saved locally in `.tours/` directory
 - Can be committed to Git or kept private
-- No external storage unless you export
+- No external storage unless exported
 
-### Self-Hosted Options
+### Self-Hosted Privacy
 
 For maximum privacy:
-1. Use **custom LLM provider** with local models
-2. Run Ollama, LM Studio, or similar locally
-3. Set `codetour.llm.apiUrl` to `http://localhost:11434/v1/chat/completions`
-4. **Your code never leaves your machine!**
+1. Use **local LLM** (Ollama, LM Studio)
+2. Set API URL to `localhost`
+3. **Your code never leaves your machine!**
 
 ---
 
 ## 🎓 Tips for Better Tours
 
-### 1. **Use Descriptive Titles**
+### 1. Use Descriptive Titles
 - ❌ Bad: "Tour 1"
 - ✅ Good: "Authentication Flow - OAuth2 Implementation"
 
-### 2. **Generate Multiple Focused Tours**
-Instead of one massive tour, create:
+### 2. Generate Focused Tours
+Create multiple tours for different aspects:
 - "Architecture Overview"
-- "API Endpoints & Routes"
-- "Database Schema & Models"
-- "Authentication & Security"
-- "Frontend Components"
+- "API Endpoints & Routing"
+- "Database Models & Queries"
+- "Authentication & Authorization"
+- "Frontend Components & State"
 
-### 3. **Leverage Smart Filtering**
-Set `maxFilesToAnalyze: 0` to analyze **entire codebase**:
-```json
-{
-  "codetour.autoGenerate.maxFilesToAnalyze": 0
-}
-```
+### 3. Choose the Right Model
+- **Fast & Affordable**: `gpt-4o-mini` (~$0.15/tour)
+- **Best Quality**: `gpt-4o`, `claude-3-5-sonnet` (~$0.50/tour)
+- **Free & Private**: Llama 3, Mistral (local)
 
-### 4. **Choose the Right Model**
-- **Fast & Cheap**: `gpt-4o-mini`, `claude-3-haiku`
-- **Best Quality**: `gpt-4o`, `claude-3-5-sonnet`
-- **Local/Private**: Llama 3, CodeLlama, Mistral
-
-### 5. **Edit Generated Tours**
-AI tours are a great starting point! Feel free to:
-- Add more context
-- Fix inaccuracies
+### 4. Edit Generated Tours
+AI tours are starting points! Feel free to:
+- Add more context or examples
+- Fix any inaccuracies
 - Adjust step order
 - Add code snippets
 
@@ -298,139 +317,128 @@ AI tours are a great starting point! Feel free to:
 
 ## 📊 Commands
 
-| Command | Description | Keyboard Shortcut |
-|---------|-------------|-------------------|
-| **Generate Code Tour (AI)** | Auto-generate tour using AI | - |
-| **Configure LLM Settings** | Set up your LLM provider | - |
+| Command | Description | Shortcut |
+|---------|-------------|----------|
+| **Generate Code Tour (AI)** | Auto-generate tour with AI | - |
+| **Configure LLM Settings** | Set up LLM provider | - |
 | **Start Tour** | Begin playing a tour | - |
-| **End Tour** | Stop the current tour | `Cmd+↓↓` / `Ctrl+↓↓` |
-| **Next Step** | Move to next tour step | `Cmd+→` / `Ctrl+→` |
+| **End Tour** | Stop current tour | `Esc` |
+| **Next Step** | Move to next step | `Cmd+→` / `Ctrl+→` |
 | **Previous Step** | Move to previous step | `Cmd+←` / `Ctrl+←` |
 | **Resume Tour** | Resume paused tour | - |
-
----
-
-## 🏗️ CI/CD Integration
-
-Keep your tours up-to-date as code evolves:
-
-### GitHub Actions
-```yaml
-- name: CodeTour Watch
-  uses: microsoft/codetour-watch@v1
-```
-
-### Azure Pipelines
-```yaml
-- task: CodeTourWatcher@1
-```
-
-These tools detect "tour drift" and alert you when tours need updates.
-
----
-
-## 🔌 Extension API
-
-Build your own integrations! CodeTour AI exposes an API:
-
-### Methods
-
-- `startTour(tour, stepNumber, workspaceRoot)` - Start a specific tour
-- `endCurrentTour()` - End the active tour
-- `exportTour(tour)` - Export tour to file
-
-### Events
-
-- `onDidStartTour((tour, step) => {...})` - Triggered when tour starts
-- `onDidEndTour((tour) => {...})` - Triggered when tour ends
-
-### Example
-
-```typescript
-const codeTourExt = vscode.extensions.getExtension("saurabh-yergattikar.codetour-ai");
-if (codeTourExt) {
-  const api = codeTourExt.exports;
-  
-  api.onDidStartTour(([tour, step]) => {
-    console.log(`Started: ${tour.title}, Step: ${step}`);
-  });
-}
-```
-
----
-
-## 📜 License & Attribution
-
-### MIT License
-
-This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) for details.
-
-### Original Work
-
-**CodeTour AI** is built upon the excellent [CodeTour extension](https://github.com/microsoft/codetour) by Microsoft Corporation.
-
-- **Original Project**: [microsoft/codetour](https://github.com/microsoft/codetour)
-- **Original Copyright**: Copyright (c) Microsoft Corporation
-- **Original License**: MIT License
-
-### AI Enhancements
-
-The AI-powered tour generation features are original contributions:
-- TreeSitter AST analysis
-- Multi-provider LLM integration
-- Concurrent batch processing
-- Smart filtering & curation
-
-- **AI Features Copyright**: Copyright (c) 2024-2025 Saurabh Yergattikar
-- **License**: MIT License (same as original)
-
-### Acknowledgments
-
-Special thanks to:
-- 🙏 **Microsoft** and the CodeTour team for the foundational extension
-- 🌳 **TreeSitter** project for AST parsing capabilities
-- 🤖 **OpenAI** and **Anthropic** for their LLM APIs
+| **Export Tour** | Export tour to file | - |
 
 ---
 
 ## 🤝 Contributing
 
-This is a free and open-source project. Contributions welcome!
+CodeTour AI is free and open source. Contributions are welcome!
+
+**How to Contribute:**
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
+## 📜 License & Credits
+
+### License
+
+This project is licensed under the **MIT License** - see [LICENSE.txt](LICENSE.txt) for details.
+
+### Built Upon Microsoft's CodeTour
+
+**CodeTour AI** is built upon the excellent [CodeTour extension](https://github.com/microsoft/codetour) originally created by Microsoft Corporation.
+
+**Original Project:**
+- **Repository**: [microsoft/codetour](https://github.com/microsoft/codetour)
+- **Copyright**: Copyright (c) Microsoft Corporation
+- **License**: MIT License
+- **Contributors**: [Jonathan Carter](https://github.com/lostintangent) and the Microsoft VS Code team
+
+We extend our deepest gratitude to Microsoft and the original CodeTour team for creating the foundational extension that made this possible.
+
+### AI Enhancements
+
+The AI-powered tour generation features are original contributions to the CodeTour ecosystem:
+
+**New Features (v1.0.0):**
+- ✨ Repomix integration for comprehensive codebase analysis
+- 🧠 Mental model tour architecture (entry → core → integrations)
+- 🤖 Multi-provider LLM integration (OpenAI, Anthropic, custom)
+- ⚡ Parallel chunk processing with rate limit protection
+- 📊 LLM-powered welcome page with architectural overview
+- 🎯 Professional, technical tour descriptions
+- 🔒 Enhanced security and privacy features
+
+**AI Features:**
+- **Copyright**: Copyright (c) 2024-2025 Saurabh Yergattikar
+- **License**: MIT License (same as original)
+- **Repository**: [github.com/saurabh-yergattikar/codetour_ai](https://github.com/saurabh-yergattikar/codetour_ai)
+
+### Acknowledgments
+
+Special thanks to:
+- 🙏 **Microsoft** and the original CodeTour team for the foundational extension
+- 📦 **Repomix** project for AI-friendly codebase summarization
+- 🤖 **OpenAI** and **Anthropic** for their LLM APIs
+- 💻 The **VS Code** team for their excellent extension API
+- 🌍 The open-source community for inspiration and support
+
+---
+
 ## 🔗 Links
 
-- **Repository**: [github.com/saurabh-yergattikar/codetour_ai](https://github.com/saurabh-yergattikar/codetour_ai)
-- **Issues**: [Report bugs or request features](https://github.com/saurabh-yergattikar/codetour_ai/issues)
-- **Original CodeTour**: [microsoft/codetour](https://github.com/microsoft/codetour)
+- **📦 VS Code Marketplace**: [Install CodeTour AI](https://marketplace.visualstudio.com/items?itemName=saurabh-yergattikar.codetour-ai)
+- **💻 GitHub Repository**: [saurabh-yergattikar/codetour_ai](https://github.com/saurabh-yergattikar/codetour_ai)
+- **🐛 Report Issues**: [GitHub Issues](https://github.com/saurabh-yergattikar/codetour_ai/issues)
+- **📖 Original CodeTour**: [microsoft/codetour](https://github.com/microsoft/codetour)
+- **📦 Repomix**: [Repomix Project](https://github.com/yamadashy/repomix)
 
 ---
 
 ## ❓ FAQ
 
 **Q: Is this free?**  
-A: Yes! The extension is free and open source. You pay only for LLM API usage.
+A: Yes! The extension is free and open source. You only pay for LLM API usage (typically $0.15-$0.50 per tour).
 
 **Q: Can I use it offline?**  
-A: Yes! Use a local LLM provider (Ollama, LM Studio, etc.) for 100% offline operation.
+A: Yes! Use a local LLM provider (Ollama, LM Studio) for 100% offline operation.
 
 **Q: How long does tour generation take?**  
-A: Typically 30-90 seconds, depending on codebase size and LLM provider.
+A: Typically 1-3 minutes, depending on codebase size and LLM provider.
 
-**Q: Will it read my secrets/passwords?**  
-A: No! Only code structure (class/function names) is sent to the LLM, not content.
+**Q: Will it send my entire code to the LLM?**  
+A: No! Only code snippets (25 lines per file) and file structure are sent, not full contents.
 
 **Q: Can I edit AI-generated tours?**  
-A: Absolutely! Tours are saved as editable `.tour` JSON files.
+A: Absolutely! Tours are saved as editable `.tour` JSON files. Customize as needed.
 
 **Q: Does it work with monorepos?**  
 A: Yes! Analyze entire monorepos or specific workspaces.
 
+**Q: What's the difference from Microsoft's CodeTour?**  
+A: This adds AI-powered tour generation using Repomix + LLMs. Original CodeTour requires manual tour creation.
+
+**Q: Can I contribute?**  
+A: Yes! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ---
 
-**Made with ❤️ for the developer community. Free and open source forever.**
+## 🌟 Show Your Support
+
+If CodeTour AI helps you or your team:
+- ⭐ **Star** the [GitHub repository](https://github.com/saurabh-yergattikar/codetour_ai)
+- 🎉 **Rate** the extension on [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=saurabh-yergattikar.codetour-ai)
+- 💬 **Share** with your developer community
+- 🐛 **Report** bugs or request features
+
+---
+
+**Made with ❤️ for the developer community.**
 
 *Transform onboarding from weeks to hours. Try CodeTour AI today!* 🚀
